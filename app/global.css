@@ -1,0 +1,17 @@
+/* app/global.css */
+body {
+  margin: 0;
+  background: #fff;
+  color: #1E2A49;
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  color: #1E2A49;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #2563EB; /* Brighter accent on hover */
+}
