@@ -7,9 +7,9 @@ const FONTS =
   'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;600&display=swap'
 
 export const metadata = {
-  title: 'OneMynd | Your systems keep the record. Your people keep the day.',
+  title: 'OneMynd | Agents that do the work, and connect the departments.',
   description:
-    'OneMynd gives the day to department agents. They read what arrives in your inboxes, work the task against your records, and propose. Nothing is written until a person taps.',
+    'One agent per department, from enquiry to cash. They read the unstructured, get the task done against your records, hand it to the next desk, and get smarter as they work.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

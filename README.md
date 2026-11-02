@@ -1,12 +1,13 @@
 # OneMynd landing page
 
 One page, Next.js, no database, no JavaScript on the page itself. Rewritten in November 2026
-around the OneMynd positioning: your systems keep the record, your people keep the day, and the
-department agents take up the day. The palette is the brief deck's; the words are the page's own.
+around the OneMynd positioning: agents that do the work and connect the departments, the supply
+chain end to end, one department expert per desk that gets smarter as it works. The palette is
+the brief deck's; the words are the page's own.
 
 - `app/page.tsx` — the page, section by section: the hero with the card, the inbox, a day, the
-  refusals, the three stages of memory, the five desks, the close. The mock card and the example
-  lines are illustrations, not a customer's data.
+  chain and its handoffs, the three stages of memory, the five desks, the close. The mock card and
+  the example lines are illustrations, not a customer's data.
 - `app/global.css` — the palette as variables, the layout, the mock card's styles, the ticker
 - `app/layout.tsx` — the typefaces (Source Serif 4 for headings, IBM Plex Sans for text, loaded
   from Google Fonts at view time so a build fetches nothing) and the metadata

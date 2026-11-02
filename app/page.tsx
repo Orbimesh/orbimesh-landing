@@ -12,6 +12,14 @@ function Wordmark() {
   );
 }
 
+function ArrowRight() {
+  return (
+    <svg className="arrow" viewBox="0 0 40 24" aria-hidden="true">
+      <path d="M2 12h28M24 5l7 7-7 7" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 // The card a person decides on, drawn the way the product draws it: the situation in one
 // sentence, one recommended option as the only colour, the alternatives, the how line, one
 // black button. The figures are an illustration, not a customer's.
@@ -79,6 +87,9 @@ function Arrival({ from, subj, att }: { from: string; subj: string; att: string 
   );
 }
 
+// The chain, enquiry to cash, and who carries each stretch of it.
+const CHAIN = ["Enquiry", "Quotation", "Order", "Plan", "Purchase", "Receipt", "Production", "Dispatch", "Invoice", "Cash"];
+
 // Each desk's agent, in its own morning line. An example report, not a measured one.
 const DESKS: Array<{ name: string; owns: string; says: string; tasks: string; wide?: boolean }> = [
   {
@@ -117,7 +128,7 @@ const DESKS: Array<{ name: string; owns: string; says: string; tasks: string; wi
 export default function Home() {
   return (
     <main id="top">
-      {/* The hero: the idea in two lines, and the card itself */}
+      {/* The hero: the idea in one line, and the card itself */}
       <header className="section navy hero">
         <div className="wrap">
           <nav className="nav">
@@ -126,15 +137,16 @@ export default function Home() {
           </nav>
           <div className="hero-grid">
             <div>
-              <p className="eyebrow">OneMynd · for manufacturers</p>
-              <h1>Your systems keep the record. Your people keep the day.</h1>
+              <p className="eyebrow">OneMynd · the supply chain, end to end</p>
+              <h1>Agents that do the work, and connect the departments.</h1>
               <p className="lead">
-                Every company already has an operating layer. It is made of people, inboxes and
-                spreadsheets. OneMynd gives that layer to department agents: they read what
-                arrives, work the task against your records, and propose. Nothing is written
-                until a person taps.
+                Until now, software did the data entry. OneMynd’s agents do the work around it.
+                They read the unstructured, the mail, the PDFs, the photos, the messages, get the
+                task done against your records, and hand it to the next desk. From enquiry to
+                cash, one agent per department, each an expert in its own, each smarter every day
+                it works.
               </p>
-              <p className="proof">Running today on the real books of a manufacturer of advanced intermediates that supplies pharma</p>
+              <p className="proof">Running today on a real company’s books, from enquiry to cash</p>
               <div className="cta">
                 <a className="btn primary" href={CONTACT}>Book a demo</a>
                 <a className="btn ghost" href="#day">See a day</a>
@@ -148,14 +160,14 @@ export default function Home() {
         </div>
       </header>
 
-      {/* The inbox: what arrives before any entry exists */}
+      {/* The inbox: the work that arrives before any entry exists */}
       <section className="section">
         <div className="wrap">
           <p className="eyebrow">Before the entry</p>
-          <h2>Your record is structured. The morning that feeds it is not.</h2>
+          <h2>Data entry was the easy part. The work is what arrives before it.</h2>
           <p className="lead" style={{ marginTop: 20 }}>
-            The ERP is only as true as what gets typed into it, and what gets typed is a
-            fraction, late. The rest of the day lives here.
+            The record holds what someone typed. The day lives in inboxes, photos and messages,
+            and turning them into work was always a person’s morning. Now it is the agents’.
           </p>
         </div>
         <div className="ticker-wrap" aria-label="Examples of what arrives in a department's inbox">
@@ -176,19 +188,19 @@ export default function Home() {
           <div className="three">
             <div className="step">
               <b>It reads</b>
-              <p>A PDF, a photo, a message, a bank line. Every name it finds is matched against your masters, or it becomes a question. Nothing is retyped.</p>
+              <p>A PDF, a photo, a message, a bank line. Every name it finds is matched against your masters. Nothing is retyped.</p>
             </div>
             <div className="step">
-              <b>It works</b>
-              <p>The price this customer last paid. The stock today. The order a receipt belongs to. The nine invoices a remittance covers. The work before the entry.</p>
+              <b>It gets it done</b>
+              <p>The price this customer last paid. The order a receipt belongs to. The nine invoices a remittance covers. The task, worked through, with its evidence.</p>
             </div>
             <div className="step">
-              <b>It proposes</b>
-              <p>A card: what this is, what to do, the evidence, one recommended option. Your person taps, and only then does the record change.</p>
+              <b>It connects the desks</b>
+              <p>A booked order becomes planning’s work. A plan becomes purchase’s. A receipt becomes finance’s. The chain moves without a mail between desks.</p>
             </div>
           </div>
           <p className="statement">
-            Not a data-entry tool. The entry is the last step. The agent does everything before it.
+            Not a data-entry tool. The entry is the last step. The agents do everything before it, and your people decide.
           </p>
         </div>
       </section>
@@ -197,7 +209,7 @@ export default function Home() {
       <section className="section alt" id="day">
         <div className="wrap">
           <p className="eyebrow">A day, not a chat</p>
-          <h2>It works at night. Your people decide in the morning.</h2>
+          <h2>It works through the night. Your people decide in the morning.</h2>
           <div className="day">
             <div className="moment">
               <span className="t">03:30</span>
@@ -213,66 +225,78 @@ export default function Home() {
             </div>
             <div className="moment">
               <span className="t">03:46</span>
-              <p>A promised follow-up falls due. The chaser is drafted, not sent.</p>
+              <p>A promised follow-up falls due. The chaser is drafted, ready to send.</p>
             </div>
             <div className="moment person">
               <span className="t">09:10</span>
-              <p>The desk owner opens the desk, taps three cards, asks one question. The morning’s entries post under that person’s name.</p>
+              <p>The desk owner opens the desk, taps three cards, asks one question. The morning’s entries post under that person’s name, and the booked order is already on planning’s desk.</p>
             </div>
           </div>
-          <p className="note">An illustrative morning. The shape is the point: nothing was written until the tap.</p>
+          <p className="note">An illustrative morning. Every action is a proposal with its evidence; your people decide, and the record names both.</p>
         </div>
       </section>
 
-      {/* What it cannot do: the design, said as refusals */}
+      {/* One chain, every desk connected */}
       <section className="section navy">
         <div className="wrap">
-          <p className="eyebrow">The design, in refusals</p>
-          <h2>What it cannot do is what makes it safe to run.</h2>
-          <ul className="cannot">
-            <li>It cannot write a record. <span>It proposes one.</span></li>
-            <li>It cannot mail a customer. <span>It drafts, you send.</span></li>
-            <li>It cannot move its own dial. <span>A person does, with a record.</span></li>
-            <li>It cannot forget who told it what. <span>Every memory has a name and a date.</span></li>
+          <p className="eyebrow">One chain, end to end</p>
+          <h2>From the first enquiry to the cash in the bank, every desk connected.</h2>
+          <ul className="chain" aria-label="The stages of the chain">
+            {CHAIN.map((stage, i) => (
+              <li key={stage} className="stage-pill">
+                <span>{stage}</span>
+                {i < CHAIN.length - 1 && <ArrowRight />}
+              </li>
+            ))}
           </ul>
-          <p className="fine">
-            A rule that must hold is not a sentence in a prompt. It is a tool the agent does not
-            have. Every write is a proposal, your person’s tap is the write, and the audit trail
-            names both. We stay out of your validated systems and work in the inboxes between them.
-          </p>
+          <div className="handoffs">
+            <div>
+              <b>Sales to planning</b>
+              <p>A booked order becomes a demand on planning’s desk the moment it posts. Planning answers with the real date, and sales has it before the customer asks.</p>
+            </div>
+            <div>
+              <b>Planning to purchase to stores</b>
+              <p>A short input becomes a requisition, the requisition a comparison of vendors, the order a receipt at the gate, each carried by the next desk’s agent.</p>
+            </div>
+            <div>
+              <b>Everything to finance</b>
+              <p>Every receipt meets its bill, every dispatch its invoice, every remittance its invoices. Finance sees the chain as it closes, with every difference explained.</p>
+            </div>
+          </div>
+          <p className="statement">The desks meet in the record, never in a forwarded mail. That is what makes it one chain.</p>
         </div>
       </section>
 
-      {/* It learns your department */}
+      {/* Department experts that get smarter as they work */}
       <section className="section">
         <div className="wrap">
-          <p className="eyebrow">It learns your department</p>
-          <h2>A careful new hire on day one. The department’s memory by month three.</h2>
+          <p className="eyebrow">Department experts</p>
+          <h2>An expert on day one. The department’s memory by month three.</h2>
           <div className="stages">
             <div className="stage">
               <p className="when">Day 1</p>
-              <h3>It knows the rules</h3>
-              <p>Your masters, your documents, your policies. It asks before it assumes, and it cannot act beyond what its desk allows.</p>
+              <h3>It knows the department</h3>
+              <p>Your masters, your documents, your rules, your flows. It works the way a careful expert works, and asks before it assumes.</p>
             </div>
             <div className="stage">
               <p className="when">Week 4</p>
               <h3>It has been told things</h3>
-              <p>The price for an account. Who approves what. A tolerance. Each kept with who said it and when, shown back at once, undoable.</p>
+              <p>The price for an account. Who approves what. A tolerance. Each kept with who said it and when, shown back at once, yours to change.</p>
             </div>
             <div className="stage last">
               <p className="when">Month 3</p>
               <h3>It has noticed things</h3>
-              <p>How a customer pays. How a vendor ships. How your people settle the same gap, every time. The working expertise of the department, inspectable and yours.</p>
+              <p>How a customer pays. How a vendor ships. How your people settle the same gap, every time. The working expertise of the whole department, inspectable and yours.</p>
             </div>
           </div>
-          <p className="statement">What it is told outranks what it noticed. Nothing it remembers overrides a rule.</p>
+          <p className="statement">What it is told outranks what it noticed. Every memory has a source and a date, and it gets smarter with every task it works.</p>
         </div>
       </section>
 
       {/* Five desks, each in its own morning line */}
       <section className="section alt">
         <div className="wrap">
-          <p className="eyebrow">Five desks, five agents</p>
+          <p className="eyebrow">Five desks, five experts</p>
           <h2>Each one opens the morning with its own report.</h2>
           <div className="desks">
             {DESKS.map((d) => (
@@ -286,7 +310,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="note">Example morning lines. The departments never talk to each other through the agents: they meet in the record, so a booked order becomes planning’s work by itself.</p>
+          <p className="note">Example morning lines. Each desk hands its work to the next through the record, so the whole chain moves as one.</p>
         </div>
       </section>
 
@@ -295,8 +319,8 @@ export default function Home() {
         <div className="wrap">
           <h2>Bring one real document. We will show you what it becomes.</h2>
           <p className="lead">
-            A vendor quotation or a customer order from your inbox, in the meeting, live. Then how
-            we would start with one of your desks: read-only first, then shadow, then proposals.
+            A vendor quotation or a customer order from your inbox, in the meeting, live, and how
+            it travels from desk to desk. Then how we would start with one of yours.
           </p>
           <div className="cta">
             <a className="btn primary" href={CONTACT}>Book a demo</a>
@@ -310,7 +334,7 @@ export default function Home() {
       <footer>
         <div className="wrap">
           <span>© 2026 OneMynd</span>
-          <span>Built on the real books of a manufacturer, not a demo.</span>
+          <span>Built on a real company’s books, not a demo.</span>
         </div>
       </footer>
     </main>
